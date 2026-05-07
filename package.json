@@ -1,0 +1,190 @@
+{
+    "name": "px-to-unit-converter",
+    "displayName": "PX To Unit Converter",
+    "description": "Convert PX values into REM, EM, or % units instantly with keyboard shortcuts, comments, auto formatting, and full CSS/SCSS support.",
+    "version": "1.0.0",
+    "publisher": "your-publisher-name",
+    "license": "MIT",
+    "icon": "images/icon.png",
+
+    "engines": {
+        "vscode": "^1.118.0"
+    },
+
+    "categories": [
+        "Formatters",
+        "Other",
+        "Snippets"
+    ],
+
+    "keywords": [
+        "px",
+        "rem",
+        "em",
+        "percent",
+        "css",
+        "scss",
+        "converter",
+        "responsive",
+        "frontend",
+        "formatter"
+    ],
+
+    "activationEvents": [
+        "onCommand:extension.pxToUnit",
+        "onCommand:extension.convertEntireFile"
+    ],
+
+    "main": "./out/extension.js",
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/amrsubzero/px-to-unit-converter"
+    },
+
+    "homepage": "https://github.com/amrsubzero/px-to-unit-converter",
+
+    "bugs": {
+        "url": "https://github.com/amrsubzero/px-to-unit-converter/issues"
+    },
+
+    "contributes": {
+
+        "commands": [
+            {
+                "command": "extension.pxToUnit",
+                "title": "Convert PX To Unit",
+                "category": "PX To Unit Converter"
+            },
+            {
+                "command": "extension.convertEntireFile",
+                "title": "Convert Entire File PX To Unit",
+                "category": "PX To Unit Converter"
+            }
+        ],
+
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "extension.pxToUnit",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.convertEntireFile",
+                    "group": "navigation"
+                }
+            ],
+
+            "commandPalette": [
+                {
+                    "command": "extension.pxToUnit"
+                },
+                {
+                    "command": "extension.convertEntireFile"
+                }
+            ]
+        },
+
+        "configuration": {
+            "title": "PX To Unit Converter",
+
+            "properties": {
+
+                "pxToUnit.baseSize": {
+                    "type": "number",
+                    "default": 16,
+                    "minimum": 1,
+                    "description": "Base size used for conversion calculations."
+                },
+
+                "pxToUnit.targetUnit": {
+                    "type": "string",
+                    "enum": [
+                        "rem",
+                        "em",
+                        "%"
+                    ],
+                    "default": "rem",
+                    "markdownDescription": "Target unit for conversion."
+                },
+
+                "pxToUnit.createComment": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Insert conversion comments above converted lines."
+                },
+
+                "pxToUnit.autoFormat": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically format the document after conversion."
+                },
+
+                "pxToUnit.shortcutKey": {
+                    "type": "string",
+                    "default": "ctrl+r",
+                    "description": "Preferred keyboard shortcut reference."
+                }
+            }
+        },
+
+        "keybindings": [
+            {
+                "command": "extension.pxToUnit",
+                "key": "ctrl+r",
+                "mac": "cmd+r",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.convertEntireFile",
+                "key": "ctrl+shift+r",
+                "mac": "cmd+shift+r",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+
+        "compile": "tsc -p ./",
+
+        "watch": "tsc -watch -p ./",
+
+        "pretest": "npm run compile && npm run lint",
+
+        "lint": "eslint src --ext ts",
+
+        "test": "vscode-test",
+
+        "package": "vsce package",
+
+        "publish": "vsce publish"
+    },
+
+    "devDependencies": {
+        "@types/vscode": "^1.118.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "22.x",
+
+        "@vscode/test-cli": "^0.0.12",
+        "@vscode/test-electron": "^2.5.2",
+
+        "typescript": "^5.9.3",
+
+        "eslint": "^9.39.3",
+        "typescript-eslint": "^8.56.1",
+
+        "@typescript-eslint/eslint-plugin": "^8.56.1",
+        "@typescript-eslint/parser": "^8.56.1",
+
+        "vsce": "^2.15.0"
+    },
+
+    "files": [
+        "out",
+        "images",
+        "README.md",
+        "LICENSE"
+    ]
+}
