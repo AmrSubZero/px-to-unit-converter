@@ -3,7 +3,7 @@
     "displayName": "PX To Unit Converter",
     "description": "Convert PX values into REM, EM, or % units instantly with keyboard shortcuts, comments, auto formatting, and full CSS/SCSS support.",
     "version": "1.0.0",
-    "publisher": "your-publisher-name",
+    "publisher": "AmrSubZero",
     "license": "MIT",
     "icon": "images/icon.png",
 
@@ -42,6 +42,11 @@
     "bugs": {
         "url": "https://github.com/amrsubzero/px-to-unit-converter/issues"
     },
+
+    "activationEvents": [
+        "onCommand:extension.pxToUnit",
+        "onCommand:extension.convertEntireFile"
+    ],
 
     "contributes": {
 
