@@ -30,11 +30,6 @@
         "formatter"
     ],
 
-    "activationEvents": [
-        "onCommand:extension.pxToUnit",
-        "onCommand:extension.convertEntireFile"
-    ],
-
     "main": "./out/extension.js",
 
     "repository": {
